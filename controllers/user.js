@@ -1,6 +1,6 @@
 const User = require('../models/user')
 
-exports.handleLogin = (req, res ,next) => {
+exports.handleLogin = (req, res, next) => {
     console.log(req.body)
     const { email, password } = req.body
     User.findOne( { email: email, password: password} )
@@ -33,7 +33,9 @@ exports.handleSignup = (req, res, next ) => {
     })
     newuser.save()
     .then(result => {
-        console.log('Added 1 user!')
+        console.log('Added 1 user!');
+        res.statusMessage = "Thanh cong";
+        res.end();
     })
     .catch(err => {
         console.log(err)
