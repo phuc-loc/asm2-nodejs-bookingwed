@@ -6,23 +6,26 @@ import MailList from "../../components/mailList/MailList";
 import Navbar from "../../components/navbar/Navbar";
 import PropertyList from "../../components/propertyList/PropertyList";
 import "./home.css";
+import React, {useState, useEffect} from "react"; 
 
-const Home = () => {
+const Home = ( {hotels} ) => { 
+  // if(data)
   return (
-    <div>
+    <div> 
       <Navbar />
       <Header />
       <div className="homeContainer">
 
-        <Featured />
+        <Featured hotels = {hotels}/>
 
         <h1 className="homeTitle">Browse by property type</h1>
-        <PropertyList />
+        <PropertyList hotels = {hotels} />
 
         <h1 className="homeTitle">Homes guests love</h1>
-        <FeaturedProperties />
+        <FeaturedProperties hotels = {hotels} />
         
         <MailList />
+
         <Footer />
       </div>
     </div>
