@@ -9,9 +9,10 @@ const hotelSchema = new Schema({
     distance: String,
     photos: Array,
     desc: String,
-    rating: Number, 
+    rating: Number,
     featured: Boolean,
-    rooms: Array
+    rooms: Array,
+    cheapestPrice: Number
 })
 
 module.exports = mongoose.model('Hotel', hotelSchema);

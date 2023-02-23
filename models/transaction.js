@@ -3,13 +3,13 @@ const hotel = require('./hotel');
 const Schema = mongoose.Schema;
 
 const transactionSchema = new Schema({
-    user: String,
+    userId: String,
     hotel: Schema.Types.ObjectId,
-    room: Array,
-    dateStart: Date,
-    dateEnd: Date,
+    rooms: Array,
+    dateStart: String,
+    dateEnd: String,
     price: Number, //!!
-    payment: Array,
+    payment: String,
     status: Array
 })
 

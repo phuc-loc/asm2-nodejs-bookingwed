@@ -1,14 +1,12 @@
 const User = require('../models/user')
 
 exports.handleLogin = (req, res, next) => {
-    console.log(req.body)
     const { email, password } = req.body
     User.findOne( { email: email, password: password} )
-
     .then( user => {
         if(user) {
             console.log('thanh cong');
-            req.user = user ;
+            // req.user = user ; !!
             res.json( user );
         } else {
             console.log('that bai')
@@ -22,7 +20,7 @@ exports.handleLogin = (req, res, next) => {
 }
 
 exports.handleSignup = (req, res, next ) => {
-    console.log(req.body);
+    // console.log(req.body);
     const newuser = new User ({
         username : req.body.username,
         password: req.body.password,
@@ -40,4 +38,12 @@ exports.handleSignup = (req, res, next ) => {
     .catch(err => {
         console.log(err)
     })
+}
+
+exports.getUsers = (req, res, next ) => {
+    User.find()
+    .then(results => {
+        res.json(results)
+    })
+    .catch(err => console.log(err))
 }
